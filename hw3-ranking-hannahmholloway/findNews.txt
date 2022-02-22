@@ -1,0 +1,71 @@
+TF-IDF for key: News
+http://pr.aljazeera.com/post/155665606810/exclusive-al-jazeera-101-east-investigates
+wordCount: 0
+totalWords: 535
+tf: 0.0
+idf: 3.4266
+tfidf: 0.0
+
+http://www.aljazeera.com/live/
+wordCount: 4
+totalWords: 575
+tf: 0.007
+idf: 3.4266
+tfidf: 0.024
+
+http://www.aljazeera.com/indepth/features/2017/01/bessie-coleman-matter-170126114158228.html
+wordCount: 4
+totalWords: 1330
+tf: 0.003
+idf: 3.4266
+tfidf: 0.0103
+
+http://pr.aljazeera.com/post/156437557510/eu-chief-brexit-negotiator-says-technically
+wordCount: 0
+totalWords: 542
+tf: 0.0
+idf: 3.4266
+tfidf: 0.0
+
+https://www.youtube.com/watch?v=cF_Ppbm-aJY&feature=share
+wordCount: 5
+totalWords: 731
+tf: 0.0068
+idf: 3.4266
+tfidf: 0.0233
+
+https://www.youtube.com/watch?v=U72_BE2yPY8
+wordCount: 4
+totalWords: 828
+tf: 0.0048
+idf: 3.4266
+tfidf: 0.0164
+
+http://pr.aljazeera.com/post/156750610455/former-fbi-agent-tells-al-jazeera-muslim-ban-a
+wordCount: 0
+totalWords: 454
+tf: 0.0
+idf: 3.4266
+tfidf: 0.0
+
+http://www.cnn.com/2017/02/01/politics/science-march-earth-day-trnd/index.html?sr=twCNN020517science-march-earth-day-trnd0745PMStoryLink&linkId=34148425
+wordCount: 1
+totalWords: 620
+tf: 0.0016
+idf: 3.4266
+tfidf: 0.0055
+
+http://www.cnn.com/2017/02/05/europe/romania-protests-corruption/index.html?sr=twCNN020617romania-protests-corruption0800AMStoryLink&linkId=34154770
+wordCount: 1
+totalWords: 1497
+tf: 0.0007
+idf: 3.4266
+tfidf: 0.0024
+
+http://www.cnn.com/videos/sports/2017/02/05/super-bowl-commercials-2017-orig-llr.cnn?sr=twCNN020617super-bowl-commercials-2017-orig-llr0327PMVideoVideo&linkId=34168837
+wordCount: 1
+totalWords: 528
+tf: 0.0019
+idf: 3.4266
+tfidf: 0.0065
+

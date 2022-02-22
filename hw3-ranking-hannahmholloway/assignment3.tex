@@ -1,0 +1,287 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{import}
+\usepackage{amsmath}
+\usepackage{listings}
+
+\lstset{
+    basicstyle=\scriptsize,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=5,
+    numbersep=5pt,
+    showspaces=false, % don't show spaces by adding underscores
+    showstringspaces=false, % don't underline spaces in strings
+    showtabs=false, % don't show tabs with underscores
+    frame=single,
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    numberbychapter=false,
+    stringstyle=\ttfamily %typewriter type for strings
+}
+
+\setlength{\headheight}{15pt}
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1.0}
+\pagestyle{fancy}
+\rhead{\AssShortTitle}
+\lhead{\Class\ (\Instructor\ \Semster)}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\newcommand{\AssignmentTitle}{Assignment\ 3}
+\newcommand{\Class}{CS432 Web Science}
+\newcommand{\Instructor}{Dr. Michele C. Weigle}
+\newcommand{\Semster}{- Spring 2020}
+\newcommand{\AssShortTitle}{Assignment 3}
+\newcommand{\MyName}{Hannah Holloway}
+\newcommand{\MyEmail}{hhollowa@odu.edu}
+
+\setcounter{secnumdepth}{0}
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\Class:\ \AssignmentTitle}}\\
+\normalsize\vspace{0.1in}\small{Finished on \today}\\
+\vspace{0.1in}\large{\textit{\Instructor\ }}
+\vspace{3in}
+}
+
+\author{\textbf{\MyName} \\ \MyEmail}
+\date{}
+
+\begin{document}
+\begin{titlepage}
+\clearpage\maketitle
+\thispagestyle{empty}
+\end{titlepage}
+
+
+\newpage
+\clearpage
+\tableofcontents
+\lstlistoflistings
+\listoffigures
+\thispagestyle{empty}
+\newpage
+\section{Problem 1}
+
+\subsection{Question}
+\vspace*{10pt}
+Download the 1000 URIs from assignment #2. ``curl'',``wget'', or
+``lynx'' are all good candidate programs to use.  We want just the
+raw HTML, not the images, stylesheets, etc.
+
+Examples from the command line:\\
+
+
+\begin{lstlisting}[language=bash,label=Command:, breakatwhitespace=〈false), caption=Command:]
+$ curl http://www.cnn.com/ > www.cnn.com
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash,label=Command:, breakatwhitespace=〈false), caption=Command:]
+% wget -O www.cnn.com http://www.cnn.com/
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash,label=Command:, breakatwhitespace=〈false), caption=Command:]
+% lynx -source http://www.cnn.com/ > www.cnn.com
+\end{lstlisting}
+
+www.cnn.com is just an example output file name, keep in mind that the shell will not like some of the characters that can occur in URIs (e.g., "?", ""). You might want to hash the URIs to associate them with their respective filename, like:\\
+
+\begin{lstlisting}[language=bash,label=Command:, breakatwhitespace=〈false), caption=Command:]
+% echo -n "http://www.cs.odu.edu/show_features.shtml?72" | md5
+41d5f125d13b4bb554e6e31b6b591eeb
+\end{lstlisting}
+
+(md5 might be md5sum on some machines; note the -n in echo -- this removes the trailing newline.)
+
+Now use a tool to remove (most) of the HTML markup for all 1000 HTML documents. python-boilerpipe will do a fair job, see http://ws-dl.blogspot.com/2017/03/2017-03-20-survey-of-5-boilerplate.html:
+
+\begin{lstlisting}[language=bash,label=Command:, breakatwhitespace=〈false), caption=Command:]
+from boilerpipe.extract import Extractor
+	extractor = Extractor(extractor='ArticleExtractor', html=html)
+	extractor.getText()
+\end{lstlisting}
+
+Keep both files for each URI (i.e., raw HTML and processed). Upload both sets of files to your GitHub repo.\\
+\\
+
+\subsection{Answer}
+\vspace{2mm}
+My first step in approaching this problem was using curl to get each of the 1000 web page's raw HTML and to save them individually. I used the curl command that was given as a reference in my first script. I struggled parsing through the json file so I went through Part 1 Assignment 2 again and outputted to a links.txt instead. Each raw HTML file was generated in a separate file and named based on its index (1 to 1000) inside the folder rawmfiThe file names and links were saved in the folder rawmData.
+\vspace{2mm}
+
+\lstinputlisting[language=Python, caption=getRawHtml.py, label=listing:Python script for raw data]{getRawHtml.py}
+
+\vspace{1mm}
+
+The derefURL function gets the raw HTML from the files by using curl -L to follow redirects. 
+\vspace{2mm}
+
+        
+\section{Problem 2}
+
+\subsection{Question}
+\vspace*{10pt}
+Choose a query term (e.g., "shadow") that is not a stop word (see Week 5 slides) and not HTML markup from step 1 (e.g., "http") that matches at least 10 documents (hint: use grep on the processed files). If the term is present in more than 10 documents, choose any 10 from your list. (If you do not end up with a list of 10 URIs, you've done something wrong).
+
+As per the example in the Week 5 slides, compute TFIDF values for the term in each of the 10 documents and create a table with the TF, IDF, and TFIDF values, as well as the corresponding URIs. Rank the URIs in decreasing order by TFIDF values. For example:
+
+\begin{center}
+ \begin{tabular}{||c c c c||} 
+ \hline
+ TFIDF & TF & IDF & URI \\ [0.5ex] 
+ \hline\hline
+ 0.150 & 0.014 & 10.680 & http://foo.com/ \\ 
+ \hline
+ 0.044 & 0.008 & 10.680 & http://bar.com/ \\
+ \hline
+\end{tabular}
+\end{center}
+
+You can use Google or Bing for the DF estimation. To count the number of words in the processed document (i.e., the deonminator for TF), you can use wc:
+
+\begin{lstlisting}[language=bash,label=Command:, breakatwhitespace=〈false), caption=Command:]
+% wc -w www.cnn.com.processed
+    2370 www.cnn.com.processed
+\end{lstlisting}
+
+It won't be completely accurate, but it will be probably be consistently inaccurate across all files. You can use more accurate methods if you'd like, just explain how you did it.
+
+Don't forget the log base 2 for IDF, and mind your significant digits!
+
+\subsection{Answer}
+My chosen query search term was "News". To retrieve the number of time "News" appeared in the raw html documents I used grep. More specially, grep-i allowed me to search for both the capitalized and lower case term. Grep -w allowed me to match the entire word and not sub strings, even though I can't think of any sub-string off the top of my head that News would be art of, but nevertheless wanted to eliminate the case scenario. The calculate function is the meat of the program that calculates the TFIDF for all the documents that included News.  
+\vspace{1mm}
+\lstinputlisting[language=Python, caption={tfidf.py}, label=listing:Part 2 python script]{tfidf.py}
+
+\vspace{5mm}
+\begin{center}
+ \begin{tabular}{||c c c c||} 
+ \hline
+ TFIDF & TF & IDF & URI \\ [0.5ex] 
+ \hline\hline
+ 0.0 & 0.0 & 3.4266 & http://pr.aljazeera.com/ \\ 
+ \hline
+ 0.024 & 0.007 & 3.4266 & http://www.aljazeera.com/ \\
+ \hline
+  0.0103 & 0.003 & 3.4266 & http://www.aljazeera.com/ \\
+ \hline
+  0.0 & 0.0 & 3.4266 & http://pr.aljazeera.com/ \\
+ \hline
+  0.0233 & 0.0068 & 3.4266 & https://www.youtube.com/ \\
+ \hline
+  0.0164 & 0.0048 & 3.4266 & https://www.youtube.com/ \\
+ \hline
+  0.0 & 0.0 & 3.4266 & http://pr.aljazeera.com/ \\
+ \hline
+ 0.0055 & 0.0016 & 3.4266 & http://www.cnn.com/ \\
+ \hline
+ 0.0024 & 0.0007 & 3.4266 & http://www.cnn.com/ \\
+ \hline
+   0.0065 & 0.0019 & 3.4266 & http://www.cnn.com/ \\
+ \hline
+\end{tabular}
+\end{center}
+\vspace{2mm}
+\vspace*{5pt}
+
+\section{Problem 3}
+
+\subsection{Question}
+\vspace*{10pt}
+Now rank the same 10 URIs from Q2, but this time by their PageRank. Use any of the free PR estimaters on the web, such as:
+
+\begin{itemize}
+  \item http://pr.eyedomain.com/
+  \item http://www.prchecker.info/check_page_rank.php
+  \item http://www.checkpagerank.net/
+  \item https://dnschecker.org/pagerank.php
+  \item https://smallseotools.com/google-pagerank-checker/
+\end{itemize}
+
+If you use these tools, you'll have to do so by hand (they have anti-bot captchas), but there are only 10 to do. Normalize the values they give you to be from 0 to 1.0. Use the same tool on all 10 (again, consistency is more important than accuracy). Also note that these tools typically report on the domain rather than the page, so it's not entirely accurate.
+
+Create a table similar to Table 1:
+
+Table 2. 10 hits for the term "shadow", ranked by PageRank.
+
+\begin{center}
+ \begin{tabular}{||c c||} 
+ \hline
+ PageRank & URI \\ [0.5ex] 
+ \hline\hline
+ 0.9 & http://bar.com/ \\ 
+ \hline
+ 0.5 & http://foo.com/ \\
+ \hline
+\end{tabular}
+\end{center}
+
+\subsection{Answer}
+\vspace{2mm}
+The image below shows the page rank and URI. I used the first reference given "http://pr.eyedomain.com/" to get the ranking for the 10 urls.
+
+
+\begin{center}
+ \begin{tabular}{||c c||c||} 
+ \hline
+ Normalised & PageRank & URI \\ [0.5ex] 
+ \hline\hline
+ 0.0 & 0 & http://pr.aljazeera.com/ \\ 
+ \hline
+ 0.0 & 0 & http://www.aljazeera.com/ \\
+ \hline
+  0.0 & 0 & http://www.aljazeera.com/ \\
+ \hline
+   0.0 & 0 & http://pr.aljazeera.com/\\
+ \hline
+  1.0 & 9 & https://www.youtube.com/ \\
+ \hline
+   1.0 & 9 & https://www.youtube.com/ \\
+ \hline
+   0.0 & 0 & http://pr.aljazeera.com/ \\
+ \hline
+  1.0 & 9 & www.cnn.com/ \\
+ \hline
+ 1.0 & 9 & http://www.cnn.com/ \\
+ \hline
+ 1.0 & 9 & http://www.cnn.com/ \\
+ \hline
+\end{tabular}
+\end{center}
+\caption{10 URIs for the term "News"}
+
+
+The data I collected shows that not all urls with high TFIDF have high page ranking. 
+
+\vspace{2mm}
+\vspace{5mm}
+\vspace{5mm}
+
+\newpage
+\newline
+\newpage
+\vspace*{5pt}
+\bibliographystyle{acm}
+\begin{thebibliography}{9}
+\bibitem{} Getting Started with Twitter API: \url{http://pr.eyedomain.com/}
+\bibitem{} Natural Language Toolkit: \url{https://github.com/nltk/nltk/commit/39a303e5ddc4cdb1a0b00a3be426239b1c24c8bb}
+\end{thebibliography}
+\end{document}
