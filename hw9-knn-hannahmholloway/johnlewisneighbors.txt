@@ -1,0 +1,7 @@
+k=5
+5 closest neighbours for repjohnlewis are:
+CoryBooker	0.0233584685339
+RepGwenMoore	0.0394837818105
+RepAnthonyBrown	0.0591862348825
+RepAndreCarson	0.061898446059
+RepBobbyRush	0.0782960292686

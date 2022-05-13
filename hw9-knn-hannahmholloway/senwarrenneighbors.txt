@@ -1,0 +1,7 @@
+k=5
+5 closest neighbours for ewarren are:
+SenKamalaHarris	0.0413615448384
+SenAmyKlobuchar	0.0475676617878
+SenCortezMasto	0.0556162872316
+RepSylviaGarcia	0.0623215843726
+SenatorBaldwin	0.0627034718104

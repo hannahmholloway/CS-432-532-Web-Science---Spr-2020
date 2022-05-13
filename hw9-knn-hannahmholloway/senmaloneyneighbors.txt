@@ -1,0 +1,7 @@
+k=5
+5 closest neighbours for RepSeanMaloney are:
+RepTedDeutch	0.0464412143282
+SenBobCasey	0.048032034582
+ChuckGrassley	0.0582832614182
+SenatorTomUdall	0.0585226187351
+SenRubioPress	0.0587551983649
