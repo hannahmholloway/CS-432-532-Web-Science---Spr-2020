@@ -1,0 +1,14 @@
+The top 5 recommendations for user 198 are:
+(5.0, 'They Made Me a Criminal (1939)')
+(5.0, 'Star Kid (1997)')
+(5.0, "Someone Else's America (1995)")
+(5.0, 'Santa with Muscles (1996)')
+(5.0, 'Saint of Fort Washington, The (1993)')
+
+The bottom 5 recommendations for user 198 are:
+(1.0, 'August (1996)')
+(1.0, 'Amityville: Dollhouse (1996)')
+(1.0, 'Amityville: A New Generation (1993)')
+(1.0, "Amityville 1992: It's About Time (1992)")
+(1.0, '3 Ninjas: High Noon At Mega Mountain (1998)')
+

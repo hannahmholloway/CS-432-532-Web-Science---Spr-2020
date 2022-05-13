@@ -1,0 +1,28 @@
+The top 5 movies similar to "Aristocats, The (1970)" are:
+(1.000000000000004, 'Fools Rush In (1997)')
+(1.0000000000000004, 'Associate, The (1996)')
+(1.0, 'Women, The (1939)')
+(1.0, 'Wings of the Dove, The (1997)')
+(1.0, 'Wild Bill (1995)')
+
+The least 5 movies similar to "Aristocats, The (1970)" are:
+(-1.0, 'Deconstructing Harry (1997)')
+(-1.0, 'Calendar Girl (1993)')
+(-1.0, 'Blown Away (1994)')
+(-1.0000000000000007, 'When the Cats Away (Chacun cherche son chat) (1996)')
+(-1.000000000000004, 'Before and After (1996)')
+
+The top 5 movies similar to "Cable Guy, The (1996)" are:
+(1.0000000000000013, 'Bitter Moon (1992)')
+(1.0000000000000007, 'Heavy (1995)')
+(1.0, 'Wild Things (1998)')
+(1.0, 'Welcome To Sarajevo (1997)')
+(1.0, 'Wedding Gift, The (1994)')
+
+The least 5 movies similar to "Cable Guy, The (1996)" are:
+(-1.0, "April Fool's Day (1986)")
+(-1.0, 'An Unforgettable Summer (1994)')
+(-1.0, 'Above the Rim (1994)')
+(-1.0, "'Til There Was You (1997)")
+(-1.0000000000000007, 'Flirt (1995)')
+
