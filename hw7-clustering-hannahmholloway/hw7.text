@@ -1,0 +1,293 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{import}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{textpos}
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+\usepackage{wrapfig} % for wrapping images with text
+\usepackage{color} % for coloring links
+\usepackage{fancyvrb}
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+% (2) specify encoding
+\usepackage[T1]{fontenc}
+
+% (3) load symbol definitions
+\usepackage{textcomp}                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+\usepackage{wrapfig} % for wrapping images with text
+\usepackage{color} % for coloring links
+\usepackage{fancyvrb}
+\usepackage{verbatim}
+\usepackage{alltt}
+\usepackage{hyperref}%for including URL
+\textblockcolour{hcolour i}
+\lstset{
+    basicstyle=\scriptsize,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=5,
+    numbersep=5pt,
+    showspaces=false, % don't show spaces by adding underscores
+    showstringspaces=false, % don't underline spaces in strings
+    showtabs=false, % don't show tabs with underscores
+    frame=single,
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    numberbychapter=false,
+    stringstyle=\ttfamily %typewriter type for strings
+}
+
+\setlength{\headheight}{15pt}
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1.0}
+\pagestyle{fancy}
+\rhead{\AssShortTitle}
+\lhead{\Class\ (\Instructor\ \Semster)}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\newcommand{\AssignmentTitle}{Assignment\ 7}
+\newcommand{\Class}{CS432 Web Science}
+\newcommand{\Instructor}{Dr. Michele C. Weigle}
+\newcommand{\Semster}{- Spring 2020}
+\newcommand{\AssShortTitle}{Assignment 7}
+\newcommand{\MyName}{Hannah Holloway}
+\newcommand{\MyEmail}{hhollowa@odu.edu}
+
+\setcounter{secnumdepth}{0}
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\Class:\ \AssignmentTitle}}\\
+\normalsize\vspace{0.1in}\small{Finished on \today}\\
+\vspace{0.1in}\large{\textit{\Instructor\ }}
+\vspace{3in}
+}
+
+\author{\textbf{\MyName} \\ \MyEmail}
+\date{}
+
+\begin{document}
+\begin{titlepage}
+\clearpage\maketitle
+\thispagestyle{empty}
+\end{titlepage}
+
+
+\newpage
+\clearpage
+\tableofcontents
+\listoffigures
+\lstlistoflistings
+\thispagestyle{empty}
+\newpage
+\section{Problem 1}
+
+\subsection{Question}
+\vspace*{10pt}
+Generate a list of 100 popular accounts on Twitter. The accounts must be verified, have > 10,000 followers, and have > 5000 tweets. See GET users/lookup and User object for details on obtaining this information for a set of accounts. You may also generate this information manually by visiting individual account pages. For example:
+
+    https://twitter.com/weiglemc - not verified, 414 followers, 2189 tweets - don't include
+    https://twitter.com/WNBA - verified (blue checkmark), 615,000+ followers, 69,000+ tweets - could include
+
+Save the list of accounts (screen\_names) in a text file (one per line) and upload to your GitHub repo.
+
+Download 200 tweets from the 100 accounts. See GET statuses/user\_timeline for details. Note that you may receive fewer than 200 tweets in a single API call due to deleted or protected tweets. It's OK as long as you get somewhere close to 200 tweets for each account. (I don't want to you have to make more than one API call per account.)
+
+Save the responses received from the 100 accounts to your GitHub repo. It can all be in a single file or a separate file for each account. Since this is an intermediate file, the format is up to you.
+
+\subsection{Answer}
+
+\vspace{2mm}
+In order to get a list of 100 popular accounts on Twitter containing all the requirements specified, I used GET friends/list and appended it wrote the data to a text file. The full script is shown below in Listing 1. 
+\newline
+
+\lstinputlisting[language=Python,breaklines = true,frame=single,caption={Friend Scraper Script}, label=lst:q1-2,captionpos=b,numbers=left]{scraper.py}
+Sample of some of the users I retrieved:
+\begin{verbatim}
+SenWarren
+RepGwenMoore
+RepRonKind
+repmarkpocan
+RepDennyHeck
+RepAdamSmith
+RepKimSchrier
+RepJayapal
+RepDerekKilmer
+RepRickLarsen    
+\end{verbatim}
+
+\paragraph{} Next, I needed to download 200 tweets from each of the 100 accounts.The script I used for this can be viewed below in Listing 2. I ended up appending all the tweets to the same .csv file. Sample list of tweets from the .csv can be viewed below in Figure 1. 
+
+\begin{figure}
+\includegraphics[width=\textwidth]{tweetsc.png}
+\caption{Sample of tweets extracted}
+\end{figure}
+\newpage
+
+\lstinputlisting[language=Python,breaklines = true,frame=single,caption={Tweet Scraper Script}, label=lst:q1-2,captionpos=b,numbers=left]{gettweets.py}
+
+
+\newpage
+
+
+\section{Problem 2}
+
+\subsection{Question}
+\vspace*{10pt}
+Generate an account-term matrix from the accounts' tweets.
+
+Using the responses from Q1, extract the text from each tweet to generate terms. Remove any URIs in the tweets, but keep regular text and hashtags as terms. Limit the number of terms to the most "popular" (i.e., frequent) 1000 terms, this is after the criteria on p. 32 (chapter 3 PCI book) (slide 11 - Week 10) has been satisfied.
+
+Save the terms for each account in a file and upload to your GitHub repo. It can all be in a single file or a separate file for each account. Since this is an intermediate file, the format is up to you.
+
+In the account-term matrix, the account screen\_name is the account identifier and should be start each row of the matrix. Use the (max 1000) terms for the columns of the matrix. The values are the frequency of occurrence. Essentially you are replicating the format of the "blogdata.txt" file included with the PCI book code.
+
+Save the matrix in a text file (either tab-separated like blogdata.txt or comma-separated) and upload to your GitHub repo.
+
+\subsection{Answer}
+\paragraph{}Next, I found the account term matrix using my script "generateaccountvector.py" similar to the Programming Collective Intelligence text. I used the feedparse library to parse through the twitter status URI. I limited the word count to 1000. Each row in the account term matrix represents a screen\_name and and each column represents a specific word. Every cell represents the number of times a word is present in the the screen\_name's tweets. I also used stopwords to prevent irrelevent data from joining the account term matrix. The account term matrix consists of 100 rows (screen\_names) and 1,000 columns (terms). The script used to create the account term matrix is displayed in Listing 3. 
+
+
+I chose Senator Warren, Representative Sean Maloney and Representative John Lewis as my 3 twitter account choices. The 5 nearest neighbors for "ewarren" can be found in Figure 2. The 5 nearest neighbors for "RepSeanMaloney" can be found in Figure 3. The 5 nearest neighbors for "repjohnlewis" can be found in Figure 4.
+\newpage
+\begin{figure}
+\includegraphics[width=\linewidth]{accountterm.png}
+\caption{Sample of Account Term Matrix}
+\end{figure}
+
+\lstinputlisting[language=Python,breaklines = true,frame=single,caption={Tweet Scraper Script}, label=lst:q1-2,captionpos=b,numbers=left]{matrixgen.py}
+\newpage
+
+\section{Problem 3}
+
+\subsection{Question}
+\vspace*{10pt}
+Create an ASCII dendrogram and a JPEG dendrogram that uses hierarchical clustering to cluster the most similar accounts (see slides 21 & 23 - Week 10). Include the JPEG in your report and upload the ASCII file to GitHub (it will be too unwieldy for inclusion in the report).
+
+\subsection{Answer}
+\begin{figure}
+\includegraphics[width=\linewidth, height=\textheight]{clusteraccounts.jpg}
+\caption{Dendogram clustering most similar accounts}
+\end{figure}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{sc5.png}
+\caption{Close up of Dendogram clustering most similar accounts}
+\end{figure}
+
+\begin{verbatim}
+    
+-
+  -
+    RepAndyKimNJ
+    -
+      -
+        -
+          RepFletcher
+          RepSherrill
+        -
+          RepBrindisi
+          -
+            -
+              RepCuellar
+              -
+                JoaquinCastrotx
+                RepGonzalez
+            -
+              RepBeatty
+              -
+                RepRonKind
+                -
+                  -
+                    RepSires
+                    -
+                      CongressmanJVD
+                      -
+                        -
+                          RepGwenMoore
+                    
+            
+\end{verbatim}
+
+\vspace{2mm}
+\vspace*{5pt}
+\section{Problem 4}
+
+\subsection{Question}
+\vspace*{10pt}
+ Cluster the accounts using k-Means, using k=5,10,20 (see slide 37 - Week 10). Print the accounts in each cluster, for each value of k. How many iterations were required for each value of k?
+\subsection{Answer}
+\vspace{2mm}
+I used my script clusters.py which is based off of the code from Programming Collective Intelligence. The number of iteration for k=5 is 6. The number of iterations for k=10 is 7 and the number of iterations for k=20 is 6. 
+\vspace{5mm}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{kmeans.png}
+\caption{Sample values in each cluster and the number of iterations}
+\end{figure}
+
+\lstinputlisting[language=Python,breaklines = true,frame=single,caption={k-Means cluster Script}, label=lst:q1-2,captionpos=b,numbers=left]{hw7q4.py}
+\newpage
+
+
+\vspace{5mm}
+\section{Problem 5}
+
+\subsection{Question}
+\vspace*{10pt}
+Use MDS to create a JPEG of the accounts (see slide 50 - Week 10). Include the JPEG in your report. How many iterations were required?
+\subsection{Answer}
+\vspace{2mm}
+I used "clusters.py" as well for this task. I added a line of code to print the number of iterations. The script I used to create the jpeg of accounts is below as well as the jpeg image itself.
+\begin{figure}
+\includegraphics[width=\linewidth]{accounts.jpg}
+\caption{JPEG of accounts}
+\end{figure}
+
+\lstinputlisting[language=Python,breaklines = true,frame=single,caption={MDS JPEG Creator Script}, label=lst:q1-2,captionpos=b,numbers=left]{clust2.py}
+\newpage
+
+\vspace{5mm}
+\newpage
+\vspace*{5pt}
+\bibliographystyle{acm}
+\begin{thebibliography}{9}
+\bibitem{machinelearningmastery.com} 
+https://machinelearningmastery.com/tutorial-to-implement-k-nearest-neighbors-in-python-from-scratch/
+\textit{}. 
+
+\bibitem{jurgens.people.si.umich.edu/} 
+http://jurgens.people.si.umich.edu/tutorials
+\textit{}. 
+
+\bibitem{towardsdatascience.com} 
+https://towardsdatascience.com/another-twitter-sentiment-analysis-with-python-part-5-50b4e87d9bdd
+\textit{}. 
+
+\end{thebibliography}
+\end{document}
