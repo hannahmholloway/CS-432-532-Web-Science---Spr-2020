@@ -1,0 +1,423 @@
+For k=5
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+Iteration 5
+Iteration 6
+accounts in cluster 1-------
+RepRickLarsen
+RepCuellar
+JoaquinCastrotx
+RepGonzalez
+RepFletcher
+RepCunningham
+RepBrindisi
+RepSherrill
+CongressmanJVD
+
+
+accounts in cluster 2-------
+ewarren
+Kilili_Sablan
+
+
+accounts in cluster 3-------
+repmarkpocan
+RepKimSchrier
+RepJayapal
+GerryConnolly
+RepWexton
+RepSpanberger
+BobbyScott
+RepElaineLuria
+StaceyPlaskett
+RepVeasey
+JacksonLeeTX18
+repjimcooper
+JimLangevin
+RepCicilline
+RepConorLamb
+RepDwightEvans
+CongBoyle
+RepSchrader
+RepTimRyan
+RepDavidEPrice
+GKButterfield
+RepJoseSerrano
+RepAOC
+RepJerryNadler
+RepJeffries
+NydiaVelazquez
+RepKathleenRice
+RepBonnie
+RepDonaldPayne
+RepChrisPappas
+
+
+accounts in cluster 4-------
+RepGwenMoore
+RepRonKind
+RepDennyHeck
+RepDerekKilmer
+RepDelBene
+RepWexton
+RepMcEachin
+RepBenMcAdams
+RepLloydDoggett
+RepColinAllred
+RepSylviaGarcia
+RepAlGreen
+WhipClyburn
+USRepMikeDoyle
+RepCartwright
+RepSusanWild
+RepHoulahan
+RepMGS
+RepDean
+RepPeterDeFazio
+RepBonamici
+RepMarcyKaptur
+RepBeatty
+RepJoeMorelle
+RepPaulTonko
+RepSeanMaloney
+NitaLowey
+RepMaxRose
+RepGregoryMeeks
+RepTorresSmall
+RepDebHaaland
+RepJoshG
+RepAnnieKuster
+RepHorsford
+
+
+accounts in cluster 5-------
+RepAdamSmith
+PeterWelch
+RepFilemonVela
+RepEBJ
+RepEscobar
+RepCohen
+repblumenauer
+RepBonamici
+RepMarciaFudge
+Kilili_Sablan
+RepBrianHiggins
+repdelgado
+RepEliotEngel
+RepEspaillat
+RepMaloney
+RepYvetteClarke
+RepGraceMeng
+RepKathleenRice
+repbenraylujan
+RepDonaldPayne
+RepSires
+RepMalinowski
+FrankPallone
+RepAndyKimNJ
+CongressmanJVD
+
+
+For k=10
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+accounts in cluster 1-------
+RepGwenMoore
+RepAdamSmith
+RepElaineLuria
+RepMarciaFudge
+RepYvetteClarke
+
+
+accounts in cluster 2-------
+RepFletcher
+
+
+accounts in cluster 3-------
+ewarren
+JimLangevin
+
+
+accounts in cluster 4-------
+RepCicilline
+repbenraylujan
+
+
+accounts in cluster 5-------
+repmarkpocan
+RepKimSchrier
+RepJayapal
+GerryConnolly
+RepWexton
+RepSpanberger
+BobbyScott
+StaceyPlaskett
+RepVeasey
+JacksonLeeTX18
+repjimcooper
+RepConorLamb
+RepDwightEvans
+CongBoyle
+RepTimRyan
+RepDavidEPrice
+GKButterfield
+RepJoseSerrano
+RepAOC
+RepJeffries
+NydiaVelazquez
+RepBonnie
+RepDonaldPayne
+RepChrisPappas
+
+
+accounts in cluster 6-------
+RepWexton
+RepMcEachin
+RepBenMcAdams
+RepLloydDoggett
+WhipClyburn
+USRepMikeDoyle
+RepCartwright
+RepHoulahan
+RepDean
+RepMarcyKaptur
+RepSeanMaloney
+RepMaxRose
+RepGregoryMeeks
+RepTorresSmall
+RepJoshG
+RepHorsford
+
+
+accounts in cluster 7-------
+RepRonKind
+RepDennyHeck
+RepDerekKilmer
+RepRickLarsen
+RepDelBene
+PeterWelch
+RepFilemonVela
+RepCuellar
+JoaquinCastrotx
+RepEscobar
+RepGonzalez
+RepAlGreen
+RepCohen
+RepMGS
+repblumenauer
+RepBonamici
+RepBonamici
+RepBrianHiggins
+RepJoeMorelle
+RepPaulTonko
+repdelgado
+NitaLowey
+RepEliotEngel
+RepEspaillat
+RepMaloney
+RepGraceMeng
+RepKathleenRice
+RepDonaldPayne
+RepSires
+RepMalinowski
+RepAndyKimNJ
+CongressmanJVD
+RepAnnieKuster
+
+
+accounts in cluster 8-------
+Kilili_Sablan
+
+
+accounts in cluster 9-------
+RepColinAllred
+RepSylviaGarcia
+RepSusanWild
+RepPeterDeFazio
+RepBeatty
+RepBrindisi
+RepDebHaaland
+RepSherrill
+CongressmanJVD
+
+
+accounts in cluster 10-------
+RepEBJ
+RepCunningham
+RepSchrader
+Kilili_Sablan
+RepJerryNadler
+RepKathleenRice
+FrankPallone
+
+
+For k=20
+Iteration 0
+Iteration 1
+Iteration 2
+Iteration 3
+Iteration 4
+accounts in cluster 1-------
+
+
+accounts in cluster 2-------
+PeterWelch
+RepFilemonVela
+RepCuellar
+repblumenauer
+RepBrianHiggins
+RepYvetteClarke
+CongressmanJVD
+
+
+accounts in cluster 3-------
+repmarkpocan
+RepKimSchrier
+GerryConnolly
+RepConorLamb
+RepDavidEPrice
+GKButterfield
+RepJeffries
+RepKathleenRice
+RepChrisPappas
+
+
+accounts in cluster 4-------
+RepGwenMoore
+RepDelBene
+RepMcEachin
+RepLloydDoggett
+RepSylviaGarcia
+WhipClyburn
+RepCartwright
+RepDean
+RepBonamici
+RepBeatty
+RepSeanMaloney
+RepMaxRose
+
+
+accounts in cluster 5-------
+RepWexton
+RepSpanberger
+BobbyScott
+JacksonLeeTX18
+repjimcooper
+RepDwightEvans
+CongBoyle
+RepAOC
+
+
+accounts in cluster 6-------
+
+
+accounts in cluster 7-------
+RepRonKind
+RepAdamSmith
+RepColinAllred
+RepAlGreen
+RepCohen
+RepCunningham
+RepSchrader
+RepPeterDeFazio
+RepMarciaFudge
+RepEliotEngel
+RepJoseSerrano
+
+
+accounts in cluster 8-------
+ewarren
+RepVeasey
+RepDonaldPayne
+RepAndyKimNJ
+CongressmanJVD
+
+
+accounts in cluster 9-------
+JimLangevin
+RepCicilline
+repbenraylujan
+
+
+accounts in cluster 10-------
+RepDennyHeck
+RepEBJ
+RepEscobar
+Kilili_Sablan
+repdelgado
+RepEspaillat
+RepMaloney
+RepGraceMeng
+RepKathleenRice
+RepDonaldPayne
+RepSires
+RepMalinowski
+FrankPallone
+
+
+accounts in cluster 11-------
+RepFletcher
+RepSherrill
+
+
+accounts in cluster 12-------
+RepJoshG
+
+
+accounts in cluster 13-------
+
+
+accounts in cluster 14-------
+RepJayapal
+RepTimRyan
+
+
+accounts in cluster 15-------
+RepWexton
+RepBenMcAdams
+USRepMikeDoyle
+RepSusanWild
+RepMarcyKaptur
+RepGregoryMeeks
+RepTorresSmall
+RepHorsford
+
+
+accounts in cluster 16-------
+Kilili_Sablan
+
+
+accounts in cluster 17-------
+RepElaineLuria
+RepBrindisi
+NydiaVelazquez
+RepBonnie
+
+
+accounts in cluster 18-------
+StaceyPlaskett
+RepJerryNadler
+
+
+accounts in cluster 19-------
+
+
+accounts in cluster 20-------
+RepDerekKilmer
+RepRickLarsen
+JoaquinCastrotx
+RepGonzalez
+RepHoulahan
+RepMGS
+RepBonamici
+RepJoeMorelle
+RepPaulTonko
+NitaLowey
+RepDebHaaland
+RepAnnieKuster
+
