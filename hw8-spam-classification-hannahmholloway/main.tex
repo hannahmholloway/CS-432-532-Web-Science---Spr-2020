@@ -1,0 +1,210 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{import}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{textpos}
+\textblockcolour{hcolour i}
+\lstset{
+    basicstyle=\scriptsize,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=5,
+    numbersep=5pt,
+    showspaces=false, % don't show spaces by adding underscores
+    showstringspaces=false, % don't underline spaces in strings
+    showtabs=false, % don't show tabs with underscores
+    frame=single,
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    numberbychapter=false,
+    stringstyle=\ttfamily %typewriter type for strings
+}
+
+\setlength{\headheight}{15pt}
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1.0}
+\pagestyle{fancy}
+\rhead{\AssShortTitle}
+\lhead{\Class\ (\Instructor\ \Semster)}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\newcommand{\AssignmentTitle}{Assignment\ 8}
+\newcommand{\Class}{CS432 Web Science}
+\newcommand{\Instructor}{Dr. Michele C. Weigle}
+\newcommand{\Semster}{- Spring 2020}
+\newcommand{\AssShortTitle}{Assignment 8}
+\newcommand{\MyName}{Hannah Holloway}
+\newcommand{\MyEmail}{hhollowa@odu.edu}
+
+\setcounter{secnumdepth}{0}
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\Class:\ \AssignmentTitle}}\\
+\normalsize\vspace{0.1in}\small{Finished on \today}\\
+\vspace{0.1in}\large{\textit{\Instructor\ }}
+\vspace{3in}
+}
+
+\author{\textbf{\MyName} \\ \MyEmail}
+\date{}
+
+\begin{document}
+\begin{titlepage}
+\clearpage\maketitle
+\thispagestyle{empty}
+\end{titlepage}
+
+
+\newpage
+\clearpage
+\tableofcontents
+\listoffigures
+\thispagestyle{empty}
+\newpage
+\section{Problem 1}
+
+\subsection{Question}
+\vspace*{10pt}
+Q1. Create two datasets, Testing and Training.
+
+The Training dataset should consist of
+
+    10 text documents for email messages you consider spam (from your spam folder)
+    10 text documents for email messages you consider not spam (from your inbox)
+
+The Testing dataset should consist of:
+
+    10 text documents for email messages you consider spam (from your spam folder)
+    10 text documents for email messages you consider not spam (from your inbox)
+
+Make sure that these are plain-text documents and that they do not include HTML tags. The documents in the Testing set should be different than the documents in the Training set.
+
+Upload your datasets to your GitHub repo. Please do not include emails that contain sensitive information.
+
+\subsection{Answer}
+\vspace{2mm}
+
+Both inbox and spam email, I put in this format:
+
+\begin{verbatim}
+
+First, I created a directory called "datasets". Inside of datasets, I created two subdirectories called test-mails and train-mails.
+Subject: book : Parmanu Row Modification Request
+
+Hi Ravi and Vinay , Hope all is well. SSG and DL have been having issues with 
+a few applications DL has developed to work with “V_WS_CRSE_SCHED_INFO" viewer , 
+as of while back we were not able to update a module in the server which needs
+to be done soon . The good news is that we have found the root cause of the 
+issue and have tested and confirmed the solution works in PreProd DB ( Doga )
+. I’d like for this change to be implemented to Parmanu “V_WS_CRSE_SCHED_INFO"
+viewer as well . 
+Thanks , Kevin Kevin Sariri Systems Engineer & Web Developer
+\end{verbatim}
+It can be seen that the first line of the mail is subject and the 3rd line contains the body of the email. 
+
+\section{Problem 2}
+
+\subsection{Question}
+\vspace*{10pt}
+\\
+Use the provided example code (see https://github.com/cs432-websci-spr20/assignments/blob/master/
+to train and test the Naive Bayes classifier. \\
+Use your Training dataset to train the Naive Bayes classifier.
+Use your Testing dataset to test the Naive Bayes classifier and report the classification results for each email message in the Testing dataset.
+
+\subsection{Answer}
+
+From my past projects and research, I have come to know that in any text mining problem, text cleaning is the first step. I removed the words from the document that do not contribute to the information needed to extract. My text cleaning involved two processes:
+
+a) Removing stop words
+
+b) Grouping together the different inflected forms of a word so they can be analysed as a single item
+
+After text cleaning, I need to create a dictionary of words and their frequency. The training set of emails is utilized for this.
+
+To see the dictionary I added print dictionary to my script. Below are the results:
+\\
+
+\begin{figure}
+\includegraphics[width=\linewidth]{dictionary.png}
+\caption{Dictionary}
+\end{figure}
+
+The below python script will generate a feature vector matrix whose rows denote 20 files of training set and columns denote 3000 words of dictionary. The value at index ‘ij’ will be the number of occurrences of jth word of dictionary in ith file.
+
+I will be using scikit-learn ML library for training classifiers. I have trained the model Naive Bayes classifier. Once the classifiers are trained, I checked the performance of the models on test-set. I extracted word count vector for each mail in test-set and predict its class(ham or spam) with the trained NB classifier. \\
+
+\lstinputlisting[language=Python]{confusionmatrix.py}
+
+\newline
+\section{Problem 3}
+
+\subsection{Question}
+\vspace*{10pt}
+Draw a confusion matrix for your classification results (see https://en.wikipedia.org/wiki/Confusionmatrix and Week-05 Searching slides for false positive/false negative examples).
+
+\subsection{Answer}
+\vspace{2mm}
+
+Test-set contains 10 spam emails and 10 non-spam emails. Below is the confusion matrix of the test-set. The diagonal elements represents the correctly identified(a.k.a. true identification) mails where as non-diagonal elements represents wrong classification (false identification) of mails.
+
+\begin{figure}
+\includegraphics[width=\linewidth]{matrixpic.png}
+\caption{Confusion-Matrix}
+\end{figure}
+
+\vspace{2mm}
+\vspace*{5pt}
+\section{Problem 4}
+
+\subsection{Question}
+\vspace*{10pt}
+  (Extra credit, 3 points) Report the precision and accuracy scores of your classification results (see https://en.wikipedia.org/wiki/Precisionand Week-05 Searching slides).
+
+\subsection{Answer}
+\vspace{2mm}
+
+I was able to print the precision and accuracy scores by simple adding:
+\begin{verbatim}
+print classification_report(test_labels,result1) 
+\end{verbatim}
+
+Here are the results: \\
+
+\begin{figure}
+\includegraphics[width=\linewidth]{class.png}
+\caption{Classification Report}
+\end{figure}
+
+\vspace{2mm}
+\vspace{5mm}
+\vspace{5mm}
+
+\newpage
+\newpage
+\vspace*{5pt}
+\bibliographystyle{acm}
+\begin{thebibliography}{9}
+https://stackoverflow.com/questions/2148543/how-to-write-a-confusion-matrix-in-python/30385488
+https://github.com/cs432-websci-spr20/assignments/blob/master/Week_11_Ch06_PCI.ipynb
+https://hackernoon.com/how-to-build-a-simple-spam-detecting-machine-learning-classifier-4471fe6b816e
+\end{thebibliography}
+\end{document}
