@@ -1,0 +1,3 @@
+Subject: book : Parmanu Row Modification Request
+
+Hi Ravi and Vinay , Hope all is well. SSG and DL have been having issues with a few applications DL has developed to work with “V_WS_CRSE_SCHED_INFO" viewer , as of while back we were not able to update a module in the server which needs to be done soon . The good news is that we have found the root cause of the issue and have tested and confirmed the solution works in PreProd DB ( Doga ) . I’d like for this change to be implemented to Parmanu “V_WS_CRSE_SCHED_INFO" viewer as well . Thanks , Kevin Kevin Sariri Systems Engineer & Web Developer
